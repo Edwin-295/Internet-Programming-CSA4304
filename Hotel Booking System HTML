@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Booking</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h1 {
+    color: darkblue;
+  }
+  .hotel {
+    border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Welcome to Hotel Booking</h1>
+
+<h2>Our Hotels</h2>
+
+<div class="hotel">
+  Taj Residency - Chennai - Rs. 3500/night
+</div>
+
+<div class="hotel">
+  Marina Bay Inn - Chennai - Rs. 4200/night
+</div>
+
+<div class="hotel">
+  Green Park Suites - Bangalore - Rs. 2800/night
+</div>
+
+<h2>Book a Room</h2>
+
+<form onsubmit="bookRoom(); return false;">
+
+  <label>Choose Hotel:</label><br>
+  <select id="hotelName">
+    <option>Taj Residency</option>
+    <option>Marina Bay Inn</option>
+    <option>Green Park Suites</option>
+  </select>
+  <br><br>
+
+  <label>Check-in Date:</label><br>
+  <input type="date" id="checkinDate">
+  <br><br>
+
+  <label>Check-out Date:</label><br>
+  <input type="date" id="checkoutDate">
+  <br><br>
+
+  <input type="submit" value="Book Now">
+
+</form>
+
+<h2 id="message"></h2>
+
+<script>
+  function bookRoom() {
+    var hotel = document.getElementById("hotelName").value;
+    var checkin = document.getElementById("checkinDate").value;
+    var checkout = document.getElementById("checkoutDate").value;
+
+    document.getElementById("message").innerHTML =
+      "Booked " + hotel + " from " + checkin + " to " + checkout;
+  }
+</script>
+
+</body>
+</html>
