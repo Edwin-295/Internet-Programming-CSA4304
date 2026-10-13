@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Bus Ticket Booking System</title>
+  <link rel="stylesheet" href="busbooking.css">
+</head>
+<body>
+  <h1>Online Bus Ticket Booking System</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search Buses</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">My Dashboard</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+  <h2>Search Buses</h2>
+  <form action="results.html" method="get">
+    <label>From</label>
+    <input type="text" name="from" placeholder="From">
+    <label>To</label>
+    <input type="text" name="to" placeholder="To">
+    <label>Date</label>
+    <input type="date" name="date">
+    <input type="submit" value="Search">
+  </form>
+  <h3>Available Buses</h3>
+  <table>
+    <tr>
+      <th>Bus Name</th>
+      <th>Type</th>
+      <th>Departure</th>
+      <th>Available Seats</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>Volvo Express</td>
+      <td>Volvo AC</td>
+      <td>09:00 AM</td>
+      <td>24</td>
+      <td>750</td>
+    </tr>
+    <tr>
+      <td>City Sleeper</td>
+      <td>Sleeper Coach</td>
+      <td>10:30 PM</td>
+      <td>12</td>
+      <td>900</td>
+    </tr>
+    <tr>
+      <td>Comfort Coach</td>
+      <td>Coach</td>
+      <td>06:00 AM</td>
+      <td>30</td>
+      <td>500</td>
+    </tr>
+  </table>
+</body>
+</html>
