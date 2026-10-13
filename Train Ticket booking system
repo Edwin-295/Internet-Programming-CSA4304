@@ -1,0 +1,115 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Train Reservation System</title>
+  <style>
+    body{
+      text-align:center;
+      font-family:Arial;
+    }
+    table{
+      margin:auto;
+      border-collapse:collapse;
+    }
+    td,th{
+      padding:8px;
+      border:1px solid black;
+    }
+    form{
+      margin:20px;
+    }
+    input,select{
+      margin:5px;
+      padding:5px;
+    }
+    nav a{
+      margin:10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Online Train Reservation System</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search Trains</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="pnr.html">PNR Status</a>
+    <a href="dashboard.html">My Dashboard</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <h2>Search Trains</h2>
+  <form action="results.html" method="get">
+    <label>From</label>
+    <input type="text" name="from" placeholder="Origin Station">
+
+    <label>To</label>
+    <input type="text" name="to" placeholder="Destination Station">
+
+    <label>Date</label>
+    <input type="date" name="date">
+
+    <label>Class</label>
+    <select name="class">
+      <option>Sleeper</option>
+      <option>AC 3 Tier</option>
+      <option>AC 2 Tier</option>
+      <option>AC First Class</option>
+    </select>
+
+    <input type="submit" value="Search">
+  </form>
+
+  <h3>Available Trains</h3>
+  <table>
+    <tr>
+      <th>Train Name</th>
+      <th>Train No</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Available Seats</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <td>Chennai Express</td>
+      <td>12601</td>
+      <td>06:00 AM</td>
+      <td>02:00 PM</td>
+      <td>45</td>
+      <td>650</td>
+    </tr>
+    <tr>
+      <td>Coastal Mail</td>
+      <td>16321</td>
+      <td>09:30 PM</td>
+      <td>07:00 AM</td>
+      <td>20</td>
+      <td>480</td>
+    </tr>
+    <tr>
+      <td>Grand Trunk Exp</td>
+      <td>12615</td>
+      <td>11:00 AM</td>
+      <td>05:30 PM</td>
+      <td>60</td>
+      <td>720</td>
+    </tr>
+  </table>
+
+  <h3>Check PNR Status</h3>
+  <form action="pnrstatus.html" method="get">
+    <input type="text" name="pnr" placeholder="Enter PNR Number">
+    <input type="submit" value="Check Status">
+  </form>
+
+  <footer>
+    <p>&copy; 2026 Online Train Reservation System</p>
+  </footer>
+
+</body>
+</html>
+```
