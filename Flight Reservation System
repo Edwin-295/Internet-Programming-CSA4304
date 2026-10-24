@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkyBook – Flight Reservation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="topbar" class="hidden">
+    <div class="logo">✈ SkyBook</div>
+    <nav>
+      <button class="link" data-go="search">Book</button>
+      <button class="link" data-go="bookings">My Bookings</button>
+      <span id="welcome"></span>
+      <button class="link" id="logoutBtn">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LOGIN / REGISTER -->
+    <section id="login" class="page active">
+      <div class="card auth">
+        <h1>✈ SkyBook</h1>
+        <div class="tabs">
+          <button class="tab active" data-tab="loginForm">Login</button>
+          <button class="tab" data-tab="registerForm">Register</button>
+        </div>
+        <form id="loginForm" class="tabpane">
+          <label>Email<input type="email" id="loginEmail" required></label>
+          <label>Password<input type="password" id="loginPass" required minlength="6"></label>
+          <p class="error" id="loginError"></p>
+          <button class="primary">Login</button>
+          <p class="hint">Demo account: demo@skybook.com / demo123</p>
+        </form>
+        <form id="registerForm" class="tabpane hidden">
+          <label>Full name<input type="text" id="regName" required></label>
+          <label>Email<input type="email" id="regEmail" required></label>
+          <label>Password<input type="password" id="regPass" required minlength="6"></label>
+          <p class="error" id="regError"></p>
+          <button class="primary">Create account</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section id="search" class="page">
+      <div class="hero">
+        <h2>Where would you like to fly?</h2>
+        <form id="searchForm" class="card search-grid">
+          <label>From <select id="from" required></select></label>
+          <label>To <select id="to" required></select></label>
+          <label>Date<input type="date" id="date" required></label>
+          <label>Passengers<input type="number" id="pax" min="1" max="6" value="1" required></label>
+          <label>Class
+            <select id="cabin">
+              <option value="Economy">Economy</option>
+              <option value="Business">Business (+80%)</option>
+            </select>
+          </label>
+          <button class="primary">Search flights</button>
+        </form>
+        <p class="error center" id="searchError"></p>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="page">
+      <div class="container">
+        <button class="link back" data-go="search">← Modify search</button>
+        <h2 id="resultsTitle"></h2>
+        <div id="flightList"></div>
+      </div>
+    </section>
+
+    <!-- PASSENGERS -->
+    <section id="passengers" class="page">
+      <div class="container two-col">
+        <form id="passengerForm" class="card">
+          <h2>Passenger details</h2>
+          <div id="passengerFields"></div>
+          <h3>Contact</h3>
+          <label>Email<input type="email" id="contactEmail" required></label>
+          <label>Phone<input type="tel" id="contactPhone" required pattern="[0-9+\-\s]{7,15}"></label>
+          <button class="primary">Continue to seats</button>
+        </form>
+        <aside class="card summary" id="summaryPassengers"></aside>
+      </div>
+    </section>
+
+    <!-- SEATS -->
+    <section id="seats" class="page">
+      <div class="container two-col">
+        <div class="card">
+          <h2>Choose your seats</h2>
+          <div class="legend">
+            <span><i class="seat free"></i>Available</span>
+            <span><i class="seat taken"></i>Taken</span>
+            <span><i class="seat selected"></i>Selected</span>
+          </div>
+          <div id="seatMap"></div>
+          <p class="error" id="seatError"></p>
+          <button class="primary" id="seatsNext">Continue to payment</button>
+        </div>
+        <aside class="card summary" id="summarySeats"></aside>
+      </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section id="payment" class="page">
+      <div class="container two-col">
+        <form id="paymentForm" class="card">
+          <h2>Payment</h2>
+          <label>Name on card<input type="text" id="cardName" required></label>
+          <label>Card number<input type="text" id="cardNum" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" required></label>
+          <div class="row">
+            <label>Expiry<input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" required></label>
+            <label>CVV<input type="password" id="cardCvv" maxlength="4" inputmode="numeric" required></label>
+          </div>
+          <p class="error" id="payError"></p>
+          <button class="primary" id="payBtn">Pay now</button>
+          <p class="hint">Demo only – no real payment is processed.</p>
+        </form>
+        <aside class="card summary" id="summaryPayment"></aside>
+      </div>
+    </section>
+
+    <!-- CONFIRMATION -->
+    <section id="confirmation" class="page">
+      <div class="container narrow">
+        <div class="card confirm">
+          <div class="check">✓</div>
+          <h2>Booking confirmed!</h2>
+          <p>A confirmation has been sent to <b id="confEmail"></b></p>
+          <div class="pnr">Booking reference <strong id="confPnr"></strong></div>
+          <div id="confDetails"></div>
+          <div class="actions">
+            <button class="secondary" onclick="window.print()">Print ticket</button>
+            <button class="primary" data-go="search">Book another flight</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY BOOKINGS -->
+    <section id="bookings" class="page">
+      <div class="container">
+        <h2>My bookings</h2>
+        <div id="bookingList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
